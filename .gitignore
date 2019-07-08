@@ -121,3 +121,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+10-classwork/sources/311_ServiceRequests_2010toPresent.csv
+07-homework/sources/Texas-licfile.csv
+07-homework/sources/Texas-violations.csv
+07-homework/sources/raw/licfile.csv
