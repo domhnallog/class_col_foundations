@@ -1,0 +1,12 @@
+Color options for a map
+
+Land A: f6e2ca (default)
+Land B: d9cfc2 (highlighted)
+Land C: a4aea1 (states)
+
+Border A: aa9678 (countries)
+Border B: c4c3b9 (states)
+
+Sea/Lakes: e7f4fc
+
+Rivers/Coast: 329ade
