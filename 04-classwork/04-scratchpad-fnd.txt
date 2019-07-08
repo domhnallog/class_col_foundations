@@ -1,0 +1,86 @@
+in jupyter 
+	shift + tab = shows documentation
+
+
+Star Wars API-
+	http://swapi.co/
+
+Pokemon API-
+	https://pokeapi.co/
+	https://pokeapi.co/api/v2/pokemon/pikachu
+	
+
+Dark Sky Wether API-
+	api.darksky.net
+	a168534@urhen.com
+	dfsdffsdf
+
+GITHUB-	website to put your code
+	your code lives in things called REPOSITORIES (like a project)
+
+GIT-	version control software that lives on your computer, saves to your computer
+
+New repository
+	use name, description, path location
+	GIT ignore = python
+	License = MIT License
+
+.gitignore
+	A list of file extensions that git will not try to access
+
+!touch .env
+	creates new blank hidden file
+	.env is a local environment file to this current run or python
+		(as compared to a global environment variable set when every instance of python or whatever is loaded)
+
+in the .env file, add:
+	darksky_apikey = '319f3b4907fb960bd04726adde8ffcd1'
+	(or other one-off or hidden variables)
+
+to run hidden api keys in python, add:
+	from dotenv import load_dotenv
+	load_dotenv()
+	import os
+	secretapikey = os.getenv("darksky_apikey")
+
+
+https://api.stackexchange.com/
+https://stackapi.readthedocs.io/en/latest/
+pip install stackapi
+	from stackapi import StackAPI
+	SITE = StackAPI('stackoverflow')
+	comments = SITE.fetch('comments')
+
+
+Questions:
+	Force data to clean up hierarchy
+	Good tools that we get for free through Github
+
+
+
+Planet question:
+	[droid_url['name'] for droid_url in spec_droid['people']
+	while loop = ?
+
+
+List Comprehension:
+Starting with this . . .
+	response = requests.get("https://swapi.co/api/people/?search=3po")
+	search_3po = response.json()
+	droid_url = search_3po['results'][0]['species'][0]
+
+This . . .
+	response = requests.get(f'{droid_url}')
+	spec_droid = response.json()
+	for droid_url in spec_droid['people']:
+		response = requests.get(droid_url)
+		droid_page = response.json()
+		for droids in droid_page:
+        		print(droids['name'])
+	
+Becomes this . . . 
+	droids = [requests.get(droid_url).json() for droid_url in spec_droid['people']]
+	for droid in droids:
+    		print(droid['name'])
+	
+	

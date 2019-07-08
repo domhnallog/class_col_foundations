@@ -1,0 +1,86 @@
+
+### GETTING / MAKING A KEY: 
+
+in cmd, as root:
+ssh-keygen -f C:/foundations_key -t rsa -b 4096
+
+C:\Users\Domhnall\Keys
+
+### SETTING UP SERVER
+
+- connect to server, 
+ssh -i C:/Users/Domhnall/Keys/foundations_key root@138.197.73.93
+
+- change prompt color 
+echo "export PS1=\"\[\033[40m\]\[\033[47m\]server\[\033[0m\] \[\033[31m\]\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\u@\h\[\033[0m\]:\w\$ \"" > ~/.bash_profile
+source ~/.bash_profile
+
+- download updates for everything on the server:
+apt update
+
+- upgrade all software and provide yes to every 
+apt -y upgrade
+
+- install python 3 and pip: 
+- (py2 is the default on digitalocean):
+apt install -y python3 python3-pip 
+
+- install various python libraries:
+- (must say pip3, again because py2 is installed default and pip):
+pip3 install ipython3 bs4 requests selenium pandas numpy datetime matplotlib python-dotenv
+
+- install mail utilities if req:
+- ("local only" server may work best)
+apt install -y mailutils
+
+- install ipython, the commandline version/precursor of jupyter:
+apt install ipython3
+
+- run ipython:
+ipython3
+
+- exit ipython
+exit()
+
+### RUN SOME TEST CODING
+
+- run some jupyter code right in the command line of the server / watch magic:
+- (don't copy / use the three quotes):
+'''
+import requests
+from bs4 import BeautifulSoup
+
+response = requests.get('https://www.bbc.com/')
+doc = BeautifulSoup(response.text)
+
+titles = doc.find_all(class_='media__link')
+for title in titles:
+  print(title.text.strip())
+'''
+
+### COPYING FILES TO & FROM THE SERVER
+
+- copy a file from local to server (scp = secure copy):
+- (while in the directory where the files to copy exist, otherwise need more explicit code):
+scp -i C:/Users/Domhnall/Keys/foundations_key scraper.py root@138.197.73.93:~
+
+- copy files from server to local:
+- (the code "~/*.csv" = from my home directory on the server, copy every csv-type):
+- (the code "~/nyt*.txt" = from my home directory on the server, copy every txt-type that starts with nyt):
+- (the final period "." = copy to here, the exact directory this local prompt is in):
+scp -i C:/Users/Domhnall/Keys/foundations_key root@138.197.73.93:~/*.csv .
+scp -i C:/Users/Domhnall/Keys/foundations_key root@138.197.73.93:~/nyt*.txt .
+
+### DISCONNECT FROM SERVER
+exit
+logout
+
+
+
+
+
+
+
+
+
+

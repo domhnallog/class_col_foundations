@@ -1,0 +1,31 @@
+# Export PDFs without the text being all weird
+import pandas as pd
+import matplotlib
+import matplotlib.pyplot as plt
+matplotlib.rcParams['pdf.fonttype'] = 42
+
+
+# Building colors to pass to matplotlib or Seaborn
+# Use as color=colors for matplotlib, palette=colors for Seaborn
+def build_colors(row):
+    if row['Country'] == 'Switzerland':
+        return 'red'
+    elif row['Country'] == 'Germany':
+        return 'red'
+    else:
+        return 'lightgrey'
+
+colors = df.reset_index().apply(build_colors, axis=1)
+
+
+# .agg for multiple aggregations, then collapsing them into simple columns
+grouped_df = df.groupby('Continent').agg({
+    'life_expectancy': ['min', 'max']
+})
+grouped_df
+
+grouped_df.columns = ['_'.join(col).strip() for col in grouped_df.columns.values]
+grouped_df = grouped_df.reset_index()
+grouped_df
+
+

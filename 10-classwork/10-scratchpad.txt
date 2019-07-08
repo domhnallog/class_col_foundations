@@ -1,0 +1,51 @@
+
+- Getting/making a key: 
+
+as root:
+ssh-keygen -f C:/foundations_key -t rsa -b 4096
+
+C:\Users\Domhnall\Keys
+
+ssh -i C:/Users/Domhnall/Keys/foundations_key root@138.197.73.93
+
+
+
+- change prompt color 
+echo "export PS1=\"\[\033[40m\]\[\033[47m\]server\[\033[0m\] \[\033[31m\]\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\u@\h\[\033[0m\]:\w\$ \"" > ~/.bash_profile
+source ~/.bash_profile
+
+- download updates for everything on the server:
+apt update
+
+- upgrade all software and provide yes to every 
+apt -y upgrade
+
+
+- install python 3 (py2 is the default on digitalocean):
+apt install -y python3-pip
+
+- install various python libraries (must say pip3, again because py2 is installed default and pip):
+pip3 install ipython3 bs4 requests selenium
+
+- install ipython:
+apt install ipython3
+
+- run the commandline version/precursor of jupyter:
+ipython3
+
+
+
+- run some jupyter code / watch magic:
+import requests
+from bs4 import BeautifulSoup
+
+response = requests.get('https://www.bbc.com/')
+doc = BeautifulSoup(response.text)
+
+titles = doc.find_all(class_='media__link')
+for title in titles:
+  print(title.text.strip())
+
+- 
+
+

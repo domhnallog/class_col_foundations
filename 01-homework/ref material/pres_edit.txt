@@ -1,0 +1,46 @@
+FREE,NAME,START,END
+ZZZ,George Washington,1789,1797
+ZZZ,John Adams,1797,1801
+ZZZ,Thomas Jefferson,1801,1809
+ZZZ,James Madison,1809,1817
+ZZZ,James Monroe,1817,1825
+ZZZ,John Quincy Adams,1825,1829
+ZZZ,Andrew Jackson,1829,1837
+ZZZ,Martin Van Buren,1837,1841
+ZZZ,William Henry Harrison,1841
+ZZZ,John Tyler,1841,1845
+ZZZ,James K. Polk,1845,1849
+ZZZ,Zachary Taylor,1849,1850
+ZZZ,Millard Fillmore,1850,1853
+ZZZ,Franklin Pierce,1853,1857
+ZZZ,James Buchanan,1857,1861
+ZZZ,Abraham Lincoln,1861,1865
+ZZZ,Andrew Johnson,1865,1869
+ZZZ,Ulysses S. Grant,1869,1877
+ZZZ,Rutherford B. Hayes,1877,1881
+ZZZ,James A. Garfield,1881-1881
+ZZZ,Chester A. Arthur,1881,1885
+ZZZ,Grover Cleveland,1885,1889
+ZZZ,Benjamin Harrison,1889,1893
+ZZZ,Grover Cleveland,1893,1897
+ZZZ,William McKinley,1897,1901
+ZZZ,Theodore Roosevelt,1901,1909
+ZZZ,William Howard Taft,1909,1913
+ZZZ,Woodrow Wilson,1913,1921
+ZZZ,Warren G. Harding,1921,1923
+ZZZ,Calvin Coolidge,1923,1929
+ZZZ,Herbert Hoover,1929,1933
+ZZZ,Franklin D. Roosevelt,1933,1945
+ZZZ,Harry S. Truman,1945,1953
+ZZZ,Dwight D. Eisenhower,1953,1961
+ZZZ,John F. Kennedy,1961,1963
+ZZZ,Lyndon B. Johnson,1963,1969
+ZZZ,Richard Nixon,1969,1974
+ZZZ,Gerald Ford,1974,1977
+ZZZ,Jimmy Carter,1977,1981
+ZZZ,Ronald Reagan,1981,1989
+ZZZ,George H. W. Bush,1989,1993
+ZZZ,Bill Clinton,1993,2001
+ZZZ,George W. Bush,2001,2009
+ZZZ,Barack Obama,2009,2017
+ZZZ,Donald Trump,2017,present

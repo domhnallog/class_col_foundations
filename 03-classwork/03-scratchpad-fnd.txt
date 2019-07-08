@@ -1,0 +1,147 @@
+Square Brackets [] = LIST
+Curly  Brackets {} = DICTIONARY
+
+Lists are called Arrays in other software
+Lists are ordered (eg. print(listname[0]) or print(listname[-1]))
+Dictionaries are not ordered 
+Loops are also called Flow Control or Language Construct
+
+FOR LOOP- LISTS
+names = ['Brooklyn', 'Manhattan', 'Bronx', 'Staten Island', 'Queens']
+for name in names:
+  print(name, 'is a borough of New York City')
+
+
+FOR LOOP- DICTIONARIES
+populations = {
+  'Santiago': 7.2,
+  'San Diego': 1.407,
+  'Nara': 1.401,
+  'Moscow': 12.19
+}
+
+for city in populations.keys():
+  print(city, 'is a city in the world')
+
+for key, value in populations.items():
+  print('The city', key, 'has a population of', value)
+  print(f"The city {key} has a population of {value}")
+  print(f'The city {key} has a population of {value * 1000000:,.0}')
+  print('---')
+
+
+FOR LOOP- DICTIONARIES COPYING/CHANGING INTO NEW DICTIONARY
+gravities = {
+    'Venus': 0.904,
+    'Earth': 1,
+    'Mars': 0.376,
+    'Ceres': 0.0275,
+    'Jupiter': 2.53,
+    'Europa': 0.134,
+    'Enceladaedus': 0.0113,
+    'HD 40307g': 1.420
+}
+
+weights = {}				# empty dict to be filled by formula
+
+for key, value in gravities.items():
+  weights[key] = (round(value * 80,2))	# 80 is the weight
+print(weights)
+
+
+
+FOR LOOP- LISTS OF DICTIONARIES
+cat_info = [
+    { 'name': 'Smushface', 'age': 6 },
+    { 'name': 'Callery', 'age': 2 },
+    { 'name': 'Naples', 'age': 'unknown' }
+]
+
+for cat in cat_info:
+    if str(cat['age']).lower() == 'unknown'.lower():
+        print("NO ONE KNOWS HOW OLD", cat['name'].upper(), "IS")
+    else:
+        print(cat['name'].upper(), "is", cat['age'], "years old")
+
+
+
+ADD TO- LIST
+listname.append(newentry1)		# for one additional entry
+listname.extend([newentry1, newentry2])	# for multiple entries
+
+ADD TO- DICIONARY
+dictname['newentrykey'] = newentryvalue
+
+
+
+SORTING:
+sorted(list_name) = sorts temporarily
+(list_name).sort()  = permanent sort
+
+
+CAPS and other FUNCTIONS / METHODS
+ssss = "Hello World"
+print(ssss.upper())
+print(ssss.lower())
+print(ssss.title())
+print(ssss.swapcase())
+print(ssss.reverse())
+
+print(ssss.count('l'))			# count something in string
+print(ssss.endswith('ld'))		# test if string ends with something
+print(ssss.split(' '))			# split into a list, based on some character (space in example)
+" ".join(["element1", "element2"])	# join a list into a string, based on some character
+
+
+for docid in document_ids:
+  docid = docid.upper()
+
+SEE ALSO:
+isupper(), islower(), lower(), upper()
+
+
+
+REPLACE:
+"123123123".replace("12", "X") 		# output: X3X3X3
+
+dogs = ["Sparky", "Jane", "Matilda", "Blartsburg"]
+print(f"The list of dogs: {dogs}")
+
+bad_dogs = [aaa.replace('a', 'y') for aaa in dogs]
+print(f"Mispelling dogs with replace: {bad_dogs}")
+
+
+
+STARTS WITH:
+name = "Leonard"
+if name.startswith("Leo"):
+  print(name, "starts with Leo")
+else:
+  print(name, "does not start with Leo")
+
+
+
+LIST COMPREHENSION:
+
+names = ['title_one', 'title_two', 'title_three']
+
+[art['title' for art in art_pieces]]
+
+# A new list of JUST the names of the art pieces
+names = [art['title'] for art in art_pieces]
+# ['Gold Star', 'Blunderbuss', 'Chairlift', 'Rancor']
+
+# A new list of JUST the names of art pieces from AFTER 1900
+names = [art['title'] for art in art_pieces if art['year'] > 1900]
+# ['Chairlift', 'Rancor']
+
+
+
+
+
+
+
+
+
+
+

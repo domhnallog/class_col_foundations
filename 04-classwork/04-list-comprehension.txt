@@ -1,0 +1,160 @@
+
+TWO LINE request/response:
+response = requests.get("https://swapi.co/api/people/?search=3po")
+search_3po = response.json()
+
+ONE LINE request/response list comprehension puts multiple results straight into a list: 
+droid_url = search_3po['results'][0]['species'][0]
+droids = [requests.get(droid_url).json() for droid_url in spec_droid['people']]
+droids
+
+
+
+
+START:
+
+count_asia = 0
+count_namer = 0
+for country in countries:
+  if country['Continent'] == 'Asia': 
+    count_asia = count_asia + 1
+  elif country['Continent'] == 'N. America': 
+    count_namer = count_namer + 1
+print(f"There are {count_asia} countries in Asia and {count_namer} in North America.")
+
+
+BECOMES:
+
+count_asia = [country for country in countries if country['Continent'] == 'Asia']
+count_namer = [country for country in countries if country['Continent'] == 'N. America']
+print(f"There are {count_asia} countries in Asia and {count_namer} in North America.")
+
+
+
+START:
+
+pop_global = 0
+for country in data:
+  pop_global = pop_global + int(country['Population']) 
+print(f"The total global population is {pop_global:,}.")
+
+
+BECOMES:
+pop_global = [int(country['Population']) for country in countries]
+print(f"The total global population is {pop_global:,}.")
+
+
+
+START:
+
+pop_samer = 0
+pop_afric = 0
+for country in data:
+  if country['Continent'] == 'S. America': 
+    pop_samer = (int(pop_samer)) + (int(country['Population']))
+  elif country['Continent'] == 'Africa': 
+    pop_afric = (int(pop_afric)) + (int(country['Population']))
+
+
+BECOMES:
+pop_samer_list = [int(country['Population']) for country in countries if country['Continent'] == 'S. America']
+pop_afric_list = [int(country['Population']) for country in countries if country['Continent'] == 'Africa']
+pop_samer = sum(pop_samer_list)
+pop_afric = sum(pop_afric_list)
+
+
+
+
+START (list comp for getting median world life exp):
+
+life_expectancies = [float(country['life_expectancy']) for country in countries]
+median_life_expectancy = statistics.median(life_expectancies)
+
+
+THEN USE FOOR-LOOP TO FILTER:
+print("Below average life expectancy:")
+for country in countries:
+  if float(country['life_expectancy']) < median_life_expectancy:
+    print(" -", country['Country'])
+
+
+OR LIST COMPREHENSION TO FILTER:
+below_average = [country for country in countries if float(country['life_expectancy']) < median_life_expectancy]
+
+print("Below average life expectancy:")
+for country in below_average:
+  print(" -", country['Country'])
+
+
+
+
+What percent of the world population has a life expectancy of below 50 years? Above 80 years?
+
+VERSION ONE: FOR-LOOP
+Keep a running tally of different population counts
+
+below_50_population = 0
+above_80_population = 0
+total_population = 0
+
+for country in countries:
+  # Always increase total_population, but only increase
+  # the other two when you need to
+  total_population = total_population + int(country['Population'])
+  if float(country['life_expectancy']) < 50:
+    below_50_population = below_50_population + int(country['Population'])
+  if float(country['life_expectancy']) > 80:
+    above_80_population = above_80_population + int(country['Population'])
+
+# Do your calculations and print the result
+below_50_pct = round(below_50_population / total_population * 100, 2)
+above_80_pct = round(above_80_population / total_population * 100, 2)
+
+print("{}% of the world has a life expectancy below 50".format(below_50_pct))
+print("{}% of the world has a life expectancy above 80".format(above_80_pct))
+
+VERSION TWO: LIST COMPREHENSIONS
+Make lists of all populations, all populations for <50 life expectancy and all populations for > 80 life expectancy
+Then use sum() to total them up and divide by total pop:
+
+all_populations = [int(country['Population']) for country in countries]
+total_population = sum(all_populations)
+
+below_50_populations = [int(country['Population']) for country in countries if float(country['life_expectancy']) < 50]
+below_50_pct = sum(below_50_populations) / total_population * 100
+
+above_80_populations = [int(country['Population']) for country in countries if float(country['life_expectancy']) > 80]
+above_80_pct = sum(above_80_populations) / total_population * 100
+
+# Use .2f to format with two digits after the decimal
+print("{:.2f}% of the world has a life expectancy below 50".format(below_50_pct))
+print("{:.2f}% of the world has a life expectancy above 80".format(above_80_pct))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

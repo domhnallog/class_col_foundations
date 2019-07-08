@@ -1,0 +1,51 @@
+
+psql -U postgres
+
+create a new database, call it mondial, send screenshot
+
+print("Venus", weight*0.904,"kg")
+print("Earth", weight*1,"kg")
+print("Mars", weight*0.376,"kg")
+print("Ceres", weight*0.0275,"kg")
+print("Jupiter", weight*2.53,"kg")
+print("Europa", weight*0.134,"kg")
+print("Encelaedus", weight*0.0113,"kg")
+print("HD 40307g", weight*1.420,"kg")
+
+
+name = input("What's your name, stranger?")
+if name == "Sam":
+  print("Well than, draw!")
+  print("Bang!")
+  print("Bang! Bang!")
+  print("Kaplow!")
+print("Ain't got time for yous...")
+
+
+
+
+
+name = input("What's your name, stanger?")
+sound = input("What sound does the animal make?")
+
+if sound == 'meow':
+  print("It's a cat,", name, "!")
+elif sound == 'woof':
+  print("It's a dog,", name, "!")
+else:
+  print("I don't know what animal it is", name, ".")
+
+
+numbers = [1, 2, 3, 4, 5]
+
+for number in numbers:
+  print(number)
+print("Senses working overtime")
+
+
+"C:\Users\Domhnall\Projects\class_col_databases\01-mondial\mondial-inputs.psql"
+
+/Users/Domhnall/Projects/class_col_databases/01-mondial/mondial-inputs.psql
+
+
+

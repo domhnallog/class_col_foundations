@@ -1,0 +1,6 @@
+# Dataset sources
+
+School Shootings.csv: 
+	https://github.com/washingtonpost/data-school-shootings
+Countries.csv: 
+	No idea. It's old, bad data. Do not use for any purposes other than testing.
